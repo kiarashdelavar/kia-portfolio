@@ -275,7 +275,7 @@ export default function Portfolio() {
                     <span key={tech} className="px-3 py-1 bg-zinc-950 rounded-md text-xs font-mono text-zinc-300 border border-zinc-800">{tech}</span>
                   ))}
                 </div>
-                <a href="https://github.com/kiarashdelavar" target="_blank" className="inline-flex items-center gap-2 text-sm font-bold text-yellow-500 hover:text-yellow-400 transition-colors">
+                <a href="https://gitlab.com/saxionnl/hbo-ict/2.2-project-client-on-board/2025-2026/12" target="_blank" className="inline-flex items-center gap-2 text-sm font-bold text-yellow-500 hover:text-yellow-400 transition-colors">
                   View Source <ExternalLink size={16} />
                 </a>
               </div>
