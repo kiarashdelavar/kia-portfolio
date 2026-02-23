@@ -83,7 +83,7 @@ export default function Portfolio() {
             </h1>
             
             <p className="text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed">
-              Hi, I am <strong className="text-white">Kiarash Delavar</strong>. I connect software with the physical world. From coding robot movements to building AI web platforms, I turn complex math into clean, working code.
+              Hi, I am <strong className="text-white">Kiarash Delavar</strong>. I like building software that solves real problems.From programming robots to creating AI web apps, I turn ideas into clean and working code.
             </p>
 
             <div className="flex flex-wrap gap-5 pt-4">
@@ -146,10 +146,10 @@ export default function Portfolio() {
             
             <div className="space-y-6 text-slate-300 text-lg font-light leading-relaxed relative z-10">
               <p>
-                Hi! I am a Software Engineering student living in the Netherlands. I have a huge passion for robotics, AI, and smart systems. For me, coding is not just about making screens look good—it is about building real systems that work perfectly and safely in the real world.
+                Hi! I’m a Software Engineering student living in the Netherlands. I’m really interested in robotics, AI, and building smart systems. For me, coding is not just about making things look nice — it’s about building systems that work well in real life.
               </p>
               <p>
-                Whether I am writing C++ code to make an ABB robotic arm move smoothly, or building a fast, scalable website using Next.js, I always focus on writing clean and reliable code. I love solving hard puzzles, learning new tools quickly, and working with great teams to build products that make a real difference.
+            Whether I’m writing C++ for a robotic arm or building a web app with Next.js, I focus on writing simple, clean, and reliable code. I enjoy solving problems, learning new technologies, and working in a team to build useful products.
               </p>
             </div>
           </motion.div>
@@ -427,7 +427,7 @@ export default function Portfolio() {
             
             <h3 className="text-5xl md:text-6xl font-black tracking-tighter text-white">Let&apos;s talk.</h3>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Whether you have a project idea, want to discuss an internship, or just want to say hello, feel free to reach out.
+              If you have a project idea, an internship opportunity, or just want to connect, feel free to message me. I’m always open to new ideas and collaborations.
             </p>
 
             <div className="space-y-4">
