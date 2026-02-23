@@ -146,7 +146,7 @@ export default function Portfolio() {
             
             <div className="space-y-6 text-slate-300 text-lg font-light leading-relaxed relative z-10">
               <p>
-                Hi! I’m a Software Engineering student living in the Netherlands. I’m really interested in robotics, AI, and building smart systems. For me, coding is not just about making things look nice — it’s about building systems that work well in real life.
+                Hi! I’m a Software Engineering student living in the Netherlands. I’m really interested in robotics, AI, and building smart systems. For me, coding is not just about making things look nice, it’s about building systems that work well in real life.
               </p>
               <p>
             Whether I’m writing C++ for a robotic arm or building a web app with Next.js, I focus on writing simple, clean, and reliable code. I enjoy solving problems, learning new technologies, and working in a team to build useful products.
