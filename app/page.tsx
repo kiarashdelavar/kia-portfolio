@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Gitlab, FileText, Mail, ExternalLink, Briefcase, Code2, Check, Target, Cpu, Database, LayoutTemplate, Layers, Globe, MapPin, Calendar, GraduationCap, ChevronRight, Rocket, Bot } from "lucide-react";
+import { Github, Linkedin, Gitlab, FileText, Mail, ExternalLink, Briefcase, Code2, Check, Target, Cpu, Database, LayoutTemplate, Layers, Globe, MapPin, Calendar, GraduationCap, ChevronRight, Rocket, Bot, Phone, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -9,7 +9,8 @@ export default function Portfolio() {
   const [copied, setCopied] = useState(false);
   const email = "kiarash.delavar@gmail.com";
 
-  const handleCopyEmail = () => {
+  const handleCopyEmail = (e: any) => {
+    e.preventDefault();
     navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -98,14 +99,14 @@ export default function Portfolio() {
             </div>
           </motion.div>
 
-          {/* ADVANCED RADAR ANIMATION WITH FLOATING ELEMENTS */}
+          {/* ADVANCED RADAR ANIMATION */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
             className="flex-1 flex justify-center items-center relative h-[400px] md:h-[500px] w-full"
           >
-            {/* Floating Tech Icons around the radar */}
+            {/* Floating Tech Icons */}
             <motion.div variants={floatAnim} animate="animate" className="absolute top-10 left-10 p-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl text-cyan-400 z-30 shadow-xl">
                <Bot size={24}/>
             </motion.div>
@@ -129,7 +130,7 @@ export default function Portfolio() {
 
         </section>
 
-        {/* ASYMMETRICAL STORY SECTION */}
+        {/* STORY SECTION */}
         <motion.section 
           id="about"
           variants={staggerContainer}
@@ -138,7 +139,7 @@ export default function Portfolio() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-8"
         >
-          {/* Main Bio - UNIQUE SHAPE */}
+          {/* Main Bio */}
           <motion.div variants={fadeUpSpring} className="md:col-span-8 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-[2rem] rounded-tl-[4rem] rounded-br-[4rem] p-8 md:p-14 hover:border-cyan-500/30 transition-all hover:shadow-[0_0_40px_rgba(34,211,238,0.1)] group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 blur-[80px] group-hover:bg-cyan-500/20 transition-all duration-700"></div>
             <h3 className="text-3xl font-black mb-8 flex items-center gap-3"><Cpu className="text-cyan-400" size={32}/> About Me</h3>
@@ -153,19 +154,19 @@ export default function Portfolio() {
             </div>
           </motion.div>
 
-          {/* Stats Box - UNIQUE SHAPE */}
+          {/* Stats Box */}
           <motion.div variants={fadeUpSpring} className="md:col-span-4 bg-gradient-to-br from-cyan-900/20 to-violet-900/20 backdrop-blur-2xl border border-white/10 rounded-[2rem] rounded-tr-[4rem] rounded-bl-[4rem] p-8 md:p-12 flex flex-col justify-between hover:border-violet-500/30 transition-all hover:shadow-[0_0_40px_rgba(168,85,247,0.1)]">
             <div className="space-y-8">
                <div>
                  <h4 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2"><MapPin size={16}/> Base</h4>
-                 <p className="text-cyan-400 font-mono text-lg">Deventer, The Netherlands</p>
+                 <p className="text-cyan-400 font-mono text-lg">Deventer, NL</p>
                </div>
                <div>
                  <h4 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2"><Globe size={16}/> Languages</h4>
                  <div className="flex flex-col gap-2 font-mono text-sm">
                     <span className="text-white">Persian <span className="text-violet-400/80">(Native)</span></span>
                     <span className="text-white">English <span className="text-violet-400/80">(C1)</span></span>
-                    <span className="text-white">Dutch <span className="text-violet-400/80">(B1 - Actively learning)</span></span>
+                    <span className="text-white">Dutch <span className="text-violet-400/80">(B1)</span></span>
                  </div>
                </div>
             </div>
@@ -174,12 +175,11 @@ export default function Portfolio() {
             </a>
           </motion.div>
 
-          {/* Tech Stack - Asymmetrical Full Width */}
+          {/* Tech Stack */}
           <motion.div variants={fadeUpSpring} className="md:col-span-12 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-[2rem] rounded-bl-[4rem] p-8 md:p-12 hover:border-white/20 transition-colors">
              <h3 className="text-2xl font-black mb-10 flex items-center gap-3"><Layers className="text-violet-400"/> Technical Arsenal</h3>
              
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-              {/* Frontend */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
                   <LayoutTemplate size={16} className="text-cyan-400"/> Frontend
@@ -191,7 +191,6 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Backend */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
                   <Database size={16} className="text-violet-400"/> Backend
@@ -203,7 +202,6 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Robotics & Embedded */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
                   <Target size={16} className="text-blue-400"/> Robotics
@@ -215,7 +213,6 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Cloud, DB & Ops */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
                   <Code2 size={16} className="text-emerald-400"/> Cloud & DevOps
@@ -226,39 +223,28 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-
             </div>
           </motion.div>
         </motion.section>
 
-        {/* EXPERIENCE & EDUCATION TIMELINES */}
+        {/* EXPERIENCE & EDUCATION */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Experience */}
-          <motion.div 
-            id="experience"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
+          <motion.div id="experience" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
             <div className="flex items-center gap-4 mb-12">
               <Briefcase className="text-cyan-400" size={28} />
               <h3 className="text-3xl font-black tracking-tight">Experience</h3>
             </div>
 
             <div className="space-y-12 border-l-2 border-white/10 ml-4 pl-10 relative">
-              
               <motion.div variants={fadeUpSpring} className="relative group hover:translate-x-2 transition-transform">
                 <span className="absolute -left-[49px] top-1.5 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_15px_#22d3ee] group-hover:scale-150 transition-transform duration-500"></span>
                 <h4 className="text-xl font-bold text-white">Robotics Intern</h4>
                 <p className="text-cyan-400 font-mono text-xs mt-2 mb-3 flex items-center gap-4 flex-wrap">
-                  <span className="flex items-center gap-1"><Briefcase size={12}/> SMART Research Group</span>
+                  <span className="flex items-center gap-1"><Briefcase size={12}/> SMART Research</span>
                   <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Enschede, NL</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> 11/2025 - Present</span>
                 </p>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  Improving ABB GoFa robot safety using ROS2, MoveIt2, and C++. Investigating motion anomalies and validating safe robot behavior.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed">Improving ABB GoFa robot safety using ROS2, MoveIt2, and C++. Investigating motion anomalies and validating safe robot behavior.</p>
               </motion.div>
 
               <motion.div variants={fadeUpSpring} className="relative group hover:translate-x-2 transition-transform">
@@ -269,9 +255,7 @@ export default function Portfolio() {
                   <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Deventer, NL</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> 10/2025 - Present</span>
                 </p>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  Leading the development of an AI-powered SaaS platform helping SMEs work smarter. Architected with Next.js, Supabase, and Spring Boot.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed">Leading the development of an AI-powered SaaS platform helping SMEs work smarter. Architected with Next.js, Supabase, and Spring Boot.</p>
               </motion.div>
 
               <motion.div variants={fadeUpSpring} className="relative group hover:translate-x-2 transition-transform">
@@ -282,29 +266,18 @@ export default function Portfolio() {
                   <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Vienna, AT</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> 11/2025 - 01/2026</span>
                 </p>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  Researched digital visitor tools (chatbots, voicebots) and evaluated vendor integrations with TYPO3 and GDPR compliance.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed">Researched digital visitor tools (chatbots, voicebots) and evaluated vendor integrations with TYPO3 and GDPR compliance.</p>
               </motion.div>
-
             </div>
           </motion.div>
 
-          {/* Education */}
-          <motion.div 
-            id="education"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
+          <motion.div id="education" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
             <div className="flex items-center gap-4 mb-12">
               <GraduationCap className="text-violet-400" size={28} />
               <h3 className="text-3xl font-black tracking-tight">Education</h3>
             </div>
 
             <div className="space-y-12 border-l-2 border-white/10 ml-4 pl-10 relative">
-              
               <motion.div variants={fadeUpSpring} className="relative group hover:translate-x-2 transition-transform">
                 <span className="absolute -left-[49px] top-1.5 w-4 h-4 bg-violet-400 rounded-full shadow-[0_0_15px_#a855f7] group-hover:scale-150 transition-transform duration-500"></span>
                 <h4 className="text-xl font-bold text-white">BASc, Software Engineering</h4>
@@ -328,48 +301,32 @@ export default function Portfolio() {
                   <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Mashhad, Iran</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> 09/2020 - 06/2023</span>
                 </p>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  Focus on advanced mathematics and complex problem-solving skills.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed">Focus on advanced mathematics and complex problem-solving skills.</p>
               </motion.div>
-
             </div>
           </motion.div>
         </section>
 
-        {/* 3D-STYLE PROJECTS SECTION */}
-        <motion.section 
-          id="projects"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
+        {/* PROJECTS SECTION */}
+        <motion.section id="projects" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
           <div className="flex items-center gap-4 mb-16">
             <Code2 className="text-cyan-400" size={32} />
             <h3 className="text-4xl font-black tracking-tight">Featured Engineering</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
             {/* Novara */}
             <motion.div variants={fadeUpSpring} className="group bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-[0_20px_60px_rgba(34,211,238,0.15)] relative">
               <div className="h-48 bg-gradient-to-br from-[#0a0f1c] to-[#0f172a] relative overflow-hidden flex items-center justify-center border-b border-white/5">
                  <h4 className="text-5xl font-black text-white/5 tracking-[0.2em] group-hover:scale-110 transition-transform duration-700">NOVARA</h4>
                  <div className="absolute top-4 right-4 flex gap-2">
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-cyan-400 flex items-center gap-1.5">
-                        <MapPin size={12}/> Deventer, NL
-                    </div>
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-cyan-400 flex items-center gap-1.5">
-                        <Calendar size={12}/> 09/2025 - Present
-                    </div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-cyan-400 flex items-center gap-1.5"><MapPin size={12}/> Deventer, NL</div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-cyan-400 flex items-center gap-1.5"><Calendar size={12}/> 09/2025 - Present</div>
                  </div>
               </div>
               <div className="p-8">
                 <h4 className="text-2xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors">Novara AI SaaS</h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">
-                  Architected a robust full-stack AI platform for freelancers and small businesses to optimize operational workflows.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">Architected a robust full-stack AI platform for freelancers and small businesses to optimize operational workflows.</p>
                 <div className="flex flex-wrap gap-2 mb-8 h-16 content-start">
                   {['Next.js', 'Supabase', 'Tailwind', 'Spring Boot'].map(tech => (
                     <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono text-cyan-300 border border-white/10">{tech}</span>
@@ -386,19 +343,13 @@ export default function Portfolio() {
               <div className="h-48 bg-gradient-to-br from-[#0a0f1c] to-[#1a0b07] relative overflow-hidden flex items-center justify-center border-b border-white/5">
                  <h4 className="text-5xl font-black text-white/5 tracking-[0.2em] group-hover:scale-110 transition-transform duration-700">SAXION</h4>
                  <div className="absolute top-4 right-4 flex gap-2">
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-[#FC6D26] flex items-center gap-1.5">
-                        <MapPin size={12}/> Deventer, NL
-                    </div>
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-[#FC6D26] flex items-center gap-1.5">
-                        <Calendar size={12}/> 11/2025 - 01/2026
-                    </div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-[#FC6D26] flex items-center gap-1.5"><MapPin size={12}/> Deventer, NL</div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-[#FC6D26] flex items-center gap-1.5"><Calendar size={12}/> 11/2025 - 01/2026</div>
                  </div>
               </div>
               <div className="p-8">
                 <h4 className="text-2xl font-bold mb-3 text-white group-hover:text-[#FC6D26] transition-colors">Project Acquisition Tool</h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">
-                  Developed a full-stack portal for Saxion University allowing client submissions, student exploration, and a teacher dashboard.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">Developed a full-stack portal for Saxion University allowing client submissions, student exploration, and a teacher dashboard.</p>
                 <div className="flex flex-wrap gap-2 mb-8 h-16 content-start">
                   {['Svelte', 'Node.js', 'Express', 'PostgreSQL'].map(tech => (
                     <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono text-[#FC6D26]/80 border border-white/10">{tech}</span>
@@ -415,19 +366,13 @@ export default function Portfolio() {
               <div className="h-48 bg-gradient-to-br from-[#0a0f1c] to-[#160f24] relative overflow-hidden flex items-center justify-center border-b border-white/5">
                  <h4 className="text-5xl font-black text-white/5 tracking-[0.2em] group-hover:scale-110 transition-transform duration-700">RAILWAY</h4>
                  <div className="absolute top-4 right-4 flex gap-2">
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-violet-400 flex items-center gap-1.5">
-                        <MapPin size={12}/> Deventer, NL
-                    </div>
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-violet-400 flex items-center gap-1.5">
-                        <Calendar size={12}/> 09/2025 - 10/2025
-                    </div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-violet-400 flex items-center gap-1.5"><MapPin size={12}/> Deventer, NL</div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-violet-400 flex items-center gap-1.5"><Calendar size={12}/> 09/2025 - 10/2025</div>
                  </div>
               </div>
               <div className="p-8">
                 <h4 className="text-2xl font-bold mb-3 text-white group-hover:text-violet-400 transition-colors">Railway Track Algorithm</h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">
-                  Java application loading Dutch railway data to provide shortest routes and MCST generation using Dijkstra and Prim algorithms.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">Java application loading Dutch railway data to provide shortest routes and MCST generation using Dijkstra and Prim algorithms.</p>
                 <div className="flex flex-wrap gap-2 mb-8 h-16 content-start">
                   {['Java', 'Algorithms', 'Dijkstra', 'Prim'].map(tech => (
                     <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono text-violet-300 border border-white/10">{tech}</span>
@@ -444,19 +389,13 @@ export default function Portfolio() {
               <div className="h-48 bg-gradient-to-br from-[#0a0f1c] to-[#0f1b2a] relative overflow-hidden flex items-center justify-center border-b border-white/5">
                  <Target className="text-white/5 w-40 h-40 group-hover:scale-110 transition-transform duration-700 animate-[spin_10s_linear_infinite]" />
                  <div className="absolute top-4 right-4 flex gap-2">
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-blue-400 flex items-center gap-1.5">
-                        <MapPin size={12}/> Deventer, NL
-                    </div>
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-blue-400 flex items-center gap-1.5">
-                        <Calendar size={12}/> 04/2025 - 06/2025
-                    </div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-blue-400 flex items-center gap-1.5"><MapPin size={12}/> Deventer, NL</div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-blue-400 flex items-center gap-1.5"><Calendar size={12}/> 04/2025 - 06/2025</div>
                  </div>
               </div>
               <div className="p-8">
                 <h4 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">Frog Autonomous Navigation</h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">
-                  Navigation system in Java using radar-based obstacle detection, real-time communication, a JavaFX mission GUI, and SQLite.
-                </p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">Navigation system in Java using radar-based obstacle detection, real-time communication, a JavaFX mission GUI, and SQLite.</p>
                 <div className="flex flex-wrap gap-2 mb-8 h-16 content-start">
                   {['Java', 'JavaFX', 'SQLite', 'Radar Systems'].map(tech => (
                     <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono text-blue-300 border border-white/10">{tech}</span>
@@ -467,49 +406,99 @@ export default function Portfolio() {
                 </a>
               </div>
             </motion.div>
-
           </div>
         </motion.section>
 
-        {/* CONTACT SECTION (The Ultimate Pulse Box) */}
+        {/* BRAND NEW SPLIT CONTACT SECTION */}
         <motion.section 
           id="contact" 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative rounded-[3rem] p-10 md:p-24 flex flex-col items-center text-center overflow-hidden border border-cyan-500/20 shadow-[0_0_100px_rgba(34,211,238,0.1)]"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/40 via-[#02040a] to-violet-900/40 z-0"></div>
-          
-          <div className="relative z-10">
-            <h3 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter text-white">Let&apos;s build next.</h3>
-            
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-sm font-bold text-cyan-400 mb-10 backdrop-blur-md">
+          {/* Left Column: Contact Details */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-sm font-bold text-cyan-400 mb-2 backdrop-blur-md">
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              Open to Internships & Part-Time Roles
+              Open to Opportunities
             </div>
-
-            <p className="font-medium text-slate-300 text-lg md:text-xl max-w-2xl mb-12 mx-auto leading-relaxed">
-              Seeking an internship or part-time role in Software Engineering, Full-Stack, Embedded Systems, or Robotics. If you need someone who can tackle complex logic and add value from day one, let&apos;s talk.
-            </p>
             
-            <div className="flex flex-col sm:flex-row gap-5 w-full md:w-auto justify-center">
-              <button 
-                onClick={handleCopyEmail}
-                className="bg-cyan-500 text-black px-8 py-4 rounded-2xl font-bold hover:bg-cyan-400 transition-all flex items-center justify-center gap-3 hover:scale-105 shadow-[0_0_30px_rgba(34,211,238,0.3)]"
-              >
-                {copied ? <Check size={20} /> : <Mail size={20} />}
-                {copied ? "Copied to Clipboard!" : email}
+            <h3 className="text-5xl md:text-6xl font-black tracking-tighter text-white">Let&apos;s talk.</h3>
+            <p className="text-slate-400 text-lg leading-relaxed mb-8">
+              Whether you have a project idea, want to discuss an internship, or just want to say hello, feel free to reach out.
+            </p>
+
+            <div className="space-y-4">
+              {/* Email Card (Click to Copy) */}
+              <button onClick={handleCopyEmail} className="w-full flex items-center gap-5 p-4 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-cyan-500/50 hover:bg-white/[0.04] transition-all group text-left">
+                <div className="p-3.5 bg-cyan-500/10 rounded-xl text-cyan-400 group-hover:scale-110 transition-transform">
+                  {copied ? <Check size={20} /> : <Mail size={20}/>}
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 font-bold tracking-wider uppercase mb-1">Email</p>
+                  <p className="font-mono text-white group-hover:text-cyan-400 transition-colors">{copied ? "Copied to clipboard!" : email}</p>
+                </div>
               </button>
-              <a 
-                href="https://www.linkedin.com/in/kiarash-delavar-b1a542289/" 
-                target="_blank"
-                className="bg-white/5 text-white border border-white/10 backdrop-blur-xl px-8 py-4 rounded-2xl font-bold hover:bg-white/10 hover:border-white/30 transition-all flex items-center justify-center gap-3 hover:scale-105"
-              >
-                <Linkedin size={20} /> LinkedIn
+
+              {/* Phone Card */}
+              <a href="tel:+31617174048" className="w-full flex items-center gap-5 p-4 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-violet-500/50 hover:bg-white/[0.04] transition-all group">
+                <div className="p-3.5 bg-violet-500/10 rounded-xl text-violet-400 group-hover:scale-110 transition-transform"><Phone size={20}/></div>
+                <div>
+                  <p className="text-xs text-slate-500 font-bold tracking-wider uppercase mb-1">Phone</p>
+                  <p className="font-mono text-white group-hover:text-violet-400 transition-colors">+31 617174048</p>
+                </div>
+              </a>
+
+              {/* LinkedIn Card */}
+              <a href="https://www.linkedin.com/in/kiarash-delavar-b1a542289/" target="_blank" className="w-full flex items-center gap-5 p-4 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-blue-500/50 hover:bg-white/[0.04] transition-all group">
+                <div className="p-3.5 bg-blue-500/10 rounded-xl text-blue-400 group-hover:scale-110 transition-transform"><Linkedin size={20}/></div>
+                <div>
+                  <p className="text-xs text-slate-500 font-bold tracking-wider uppercase mb-1">LinkedIn</p>
+                  <p className="font-mono text-white group-hover:text-blue-400 transition-colors">Kiarash Delavar</p>
+                </div>
+              </a>
+
+              {/* GitHub Card */}
+              <a href="https://github.com/kiarashdelavar" target="_blank" className="w-full flex items-center gap-5 p-4 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-slate-300/50 hover:bg-white/[0.04] transition-all group">
+                <div className="p-3.5 bg-slate-100/10 rounded-xl text-slate-200 group-hover:scale-110 transition-transform"><Github size={20}/></div>
+                <div>
+                  <p className="text-xs text-slate-500 font-bold tracking-wider uppercase mb-1">GitHub</p>
+                  <p className="font-mono text-white group-hover:text-slate-300 transition-colors">@kiarashdelavar</p>
+                </div>
               </a>
             </div>
+          </div>
+
+          {/* Right Column: The Form */}
+          <div className="lg:col-span-7 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 blur-[80px] pointer-events-none"></div>
+            
+            <h4 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
+              <Send className="text-cyan-400"/> Send a Message
+            </h4>
+
+            {/* NOTE: Replace YOUR_FORMSPREE_ID in the action URL below to make it work! */}
+            <form action="https://formspree.io/f/xbdapkgq" method="POST" className="space-y-6 relative z-10">
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                     <label className="block text-sm font-bold text-slate-400 mb-2">Your Name</label>
+                     <input type="text" name="name" required className="w-full bg-[#0a0f1c] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all placeholder:text-slate-600" placeholder="John Doe" />
+                  </div>
+                  <div>
+                     <label className="block text-sm font-bold text-slate-400 mb-2">Your Email</label>
+                     <input type="email" name="email" required className="w-full bg-[#0a0f1c] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all placeholder:text-slate-600" placeholder="john@company.com" />
+                  </div>
+               </div>
+               <div>
+                  <label className="block text-sm font-bold text-slate-400 mb-2">Message</label>
+                  <textarea name="message" required rows={5} className="w-full bg-[#0a0f1c] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none placeholder:text-slate-600" placeholder="Tell me about your project, team, or opportunity..."></textarea>
+               </div>
+               <button type="submit" className="w-full py-4 bg-cyan-500 text-black font-black text-lg rounded-xl hover:bg-cyan-400 transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:-translate-y-1">
+                 Send Message <Rocket size={20} />
+               </button>
+            </form>
           </div>
         </motion.section>
 
