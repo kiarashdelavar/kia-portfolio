@@ -252,7 +252,7 @@ export default function Portfolio() {
                 <span className="absolute -left-[49px] top-1.5 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_15px_#22d3ee] group-hover:scale-150 transition-transform duration-500"></span>
                 <h4 className="text-xl font-bold text-white">Robotics Intern</h4>
                 <p className="text-cyan-400 font-mono text-xs mt-2 mb-3 flex items-center gap-4 flex-wrap">
-                  <span className="flex items-center gap-1"><Briefcase size={12}/> SMART Research</span>
+                  <span className="flex items-center gap-1"><Briefcase size={12}/> SMART Research Group</span>
                   <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Enschede, NL</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> 11/2025 - Present</span>
                 </p>
