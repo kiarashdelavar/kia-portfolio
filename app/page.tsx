@@ -83,7 +83,7 @@ export default function Portfolio() {
             </h1>
             
             <p className="text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed">
-              Hi, I am <strong className="text-white">Kiarash</strong>. I connect software with the physical world. From coding robot movements to building AI web platforms, I turn complex math into clean, working code.
+              Hi, I am <strong className="text-white">Kiarash Delavar</strong>. I connect software with the physical world. From coding robot movements to building AI web platforms, I turn complex math into clean, working code.
             </p>
 
             <div className="flex flex-wrap gap-5 pt-4">
@@ -159,14 +159,14 @@ export default function Portfolio() {
             <div className="space-y-8">
                <div>
                  <h4 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2"><MapPin size={16}/> Base</h4>
-                 <p className="text-cyan-400 font-mono text-lg">Deventer, NL</p>
+                 <p className="text-cyan-400 font-mono text-lg">Deventer, The Netherlands</p>
                </div>
                <div>
                  <h4 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2"><Globe size={16}/> Languages</h4>
                  <div className="flex flex-col gap-2 font-mono text-sm">
                     <span className="text-white">Persian <span className="text-violet-400/80">(Native)</span></span>
                     <span className="text-white">English <span className="text-violet-400/80">(C1)</span></span>
-                    <span className="text-white">Dutch <span className="text-violet-400/80">(B1)</span></span>
+                    <span className="text-white">Dutch <span className="text-violet-400/80">(B1 - Actively Learning)</span></span>
                  </div>
                </div>
             </div>
@@ -240,7 +240,7 @@ export default function Portfolio() {
                 <span className="absolute -left-[49px] top-1.5 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_15px_#22d3ee] group-hover:scale-150 transition-transform duration-500"></span>
                 <h4 className="text-xl font-bold text-white">Robotics Intern</h4>
                 <p className="text-cyan-400 font-mono text-xs mt-2 mb-3 flex items-center gap-4 flex-wrap">
-                  <span className="flex items-center gap-1"><Briefcase size={12}/> SMART Research</span>
+                  <span className="flex items-center gap-1"><Briefcase size={12}/> SMART Research Group</span>
                   <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Enschede, NL</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> 11/2025 - Present</span>
                 </p>
