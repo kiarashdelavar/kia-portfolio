@@ -83,7 +83,7 @@ export default function Portfolio() {
             </h1>
             
             <p className="text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed">
-              Hi, I am <strong className="text-white">Kiarash Delavar</strong>. I like building software that solves real problems.From programming robots to creating AI web apps, I turn ideas into clean and working code.
+              Hi, I am <strong className="text-white">Kiarash Delavar</strong>. I like building software that solves real problems. From programming robots to creating AI web apps, I turn ideas into clean and working code.
             </p>
 
             <div className="flex flex-wrap gap-5 pt-4">
@@ -402,6 +402,31 @@ export default function Portfolio() {
                   ))}
                 </div>
                 <a href="https://github.com/kiarashdelavar/Frog-Autonomous-Navigation-System" target="_blank" className="w-full py-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2 text-sm font-bold text-white hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all">
+                  View Source <ExternalLink size={16} />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* IoT Telemetry Platform */}
+            <motion.div variants={fadeUpSpring} className="group bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-[0_20px_60px_rgba(16,185,129,0.15)] relative">
+              <div className="h-48 bg-gradient-to-br from-[#0a0f1c] to-[#061f14] relative overflow-hidden flex items-center justify-center border-b border-white/5">
+                 <h4 className="text-5xl md:text-4xl lg:text-5xl font-black text-white/5 tracking-[0.2em] group-hover:scale-110 transition-transform duration-700">TELEMETRY</h4>
+                 <div className="absolute top-4 right-4 flex gap-2">
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5"><MapPin size={12}/> Deventer, NL</div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5"><Calendar size={12}/> 02/2026 - Present</div>
+                 </div>
+              </div>
+              <div className="p-8">
+                <h4 className="text-2xl font-bold mb-3 text-white group-hover:text-emerald-400 transition-colors">IoT Telemetry Platform</h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">
+                  A full-stack IoT telemetry monitoring dashboard built with FastAPI, Next.js (React Three Fiber), PostgreSQL, and Docker.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-8 h-16 content-start">
+                  {['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Three.js'].map(tech => (
+                    <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono text-emerald-300 border border-white/10">{tech}</span>
+                  ))}
+                </div>
+                <a href="https://github.com/kiarashdelavar/iot-telemetry-platform" target="_blank" className="w-full py-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2 text-sm font-bold text-white hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all">
                   View Source <ExternalLink size={16} />
                 </a>
               </div>
