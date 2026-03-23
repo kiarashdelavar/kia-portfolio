@@ -145,13 +145,16 @@ export default function Portfolio() {
             <h3 className="text-3xl font-black mb-8 flex items-center gap-3"><Cpu className="text-cyan-400" size={32}/> About Me</h3>
             
             <div className="space-y-6 text-slate-300 text-lg font-light leading-relaxed relative z-10">
-              <p>
-                Hi! I’m a Software Engineering student living in the Netherlands. I’m really interested in robotics, AI, and building smart systems. For me, coding is not just about making things look nice, it’s about building systems that work well in real life.
-              </p>
-              <p>
-            Whether I’m writing C++ for a robotic arm or building a web app with Next.js, I focus on writing simple, clean, and reliable code. I enjoy solving problems, learning new technologies, and working in a team to build useful products.
-              </p>
-            </div>
+  <p>
+    Hi! I’m a Software Engineering student living in the Netherlands. I’m really interested in robotics, AI, and building smart systems. For me, coding is not just about making things look nice, it’s about building systems that work well in real life.
+  </p>
+  <p>
+    I enjoy working across the whole "stack." I like building the front-end of websites, but I also love working with back-end logic and databases. Recently, I have become very interested in Data Science. I like using data to understand how systems work and how to make them better.
+  </p>
+  <p>
+    Whether I’m writing C++ for a robotic arm, analyzing data in Python, or building a web app with Next.js, I focus on writing simple, clean, and reliable code. I enjoy solving problems, learning new technologies, and working in a team to build useful products.
+  </p>
+</div>
           </motion.div>
 
           {/* Stats Box */}
@@ -331,6 +334,31 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Novara */}
+            {/* Human Motion Analysis - Computer Vision */}
+            <motion.div variants={fadeUpSpring} className="group bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-[0_20px_60px_rgba(52,211,153,0.15)] relative">
+              <div className="h-48 bg-gradient-to-br from-[#0a0f1c] to-[#062016] relative overflow-hidden flex items-center justify-center border-b border-white/5">
+                 <h4 className="text-5xl font-black text-white/5 tracking-[0.2em] group-hover:scale-110 transition-transform duration-700">CYCLES</h4>
+                 <div className="absolute top-4 right-4 flex gap-2">
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5"><MapPin size={12}/> NOC*NSF</div>
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5"><Calendar size={12}/> 03/2026 - Present</div>
+                 </div>
+              </div>
+              <div className="p-8">
+                <h4 className="text-2xl font-bold mb-3 text-white group-hover:text-emerald-400 transition-colors">Cycling Start Analysis</h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 h-16">
+                  Developed an MVP for human pose estimation to analyze joint angles and movement timing of track sprint cyclists in collaboration with NOC*NSF.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-8 h-16 content-start">
+                  {['Python', 'OpenCV', 'MediaPipe', 'Pose Estimation', 'Numpy'].map(tech => (
+                    <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono text-emerald-300 border border-white/10">{tech}</span>
+                  ))}
+                </div>
+                <a href="https://github.com/kiarashdelavar/cycling-start-analysis" target="_blank" className="w-full py-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2 text-sm font-bold text-white hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all">
+                  View Source <ExternalLink size={16} />
+                </a>
+              </div>
+            </motion.div>
+
             <motion.div variants={fadeUpSpring} className="group bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-[0_20px_60px_rgba(34,211,238,0.15)] relative">
               <div className="h-48 bg-gradient-to-br from-[#0a0f1c] to-[#0f172a] relative overflow-hidden flex items-center justify-center border-b border-white/5">
                  <h4 className="text-5xl font-black text-white/5 tracking-[0.2em] group-hover:scale-110 transition-transform duration-700">NOVARA</h4>
