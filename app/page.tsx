@@ -243,7 +243,7 @@ export default function Portfolio() {
                 <h4 className="text-xl font-bold text-white flex items-center gap-2">MLOps & Machine Learning Engineer <Brain size={18} className="text-emerald-400" /></h4>
                 <p className="text-emerald-400 font-mono text-xs mt-2 mb-3 flex items-center gap-4 flex-wrap">
                   <span className="flex items-center gap-1"><Briefcase size={12}/> Saxion Ambient Intelligence</span>
-                  <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Remote</span>
+                  <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Deventer, NL</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> March 2026 - Present</span>
                 </p>
                 <p className="text-slate-400 text-sm leading-relaxed">Developing a real-time audio analysis project focusing on multi-stream sentiment analysis, Dockerized testing environments, and ML model evaluation.</p>
@@ -254,8 +254,8 @@ export default function Portfolio() {
                 <span className="absolute -left-[49px] top-1.5 w-4 h-4 bg-emerald-400 rounded-full shadow-[0_0_15px_#34d399] group-hover:scale-150 transition-transform duration-500"></span>
                 <h4 className="text-xl font-bold text-white flex items-center gap-2">Computer Vision & Pose Estimation Project <Eye size={18} className="text-emerald-400" /></h4>
                 <p className="text-emerald-400 font-mono text-xs mt-2 mb-3 flex items-center gap-4 flex-wrap">
-                  <span className="flex items-center gap-1"><Briefcase size={12}/> Collaboration with NOC*NSF</span>
-                  <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Netherlands</span>
+                  <span className="flex items-center gap-1"><Briefcase size={12}/> Saxion Ambient Intelligence - Collaboration with NOC*NSF</span>
+                  <span className="flex items-center gap-1 text-slate-400"><MapPin size={12}/> Deventer, NL</span>
                   <span className="flex items-center gap-1 text-slate-400"><Calendar size={12}/> March 2026 - Present</span>
                 </p>
                 <p className="text-slate-400 text-sm leading-relaxed">Analyzing track sprint cyclists via video using pose estimation methods to measure joint angles and movement timing relative to signals.</p>
