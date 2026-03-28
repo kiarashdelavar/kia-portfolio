@@ -190,7 +190,7 @@ export default function Portfolio() {
                   <LayoutTemplate size={16} className="text-cyan-400"/> Web & Frontend
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {['Next.js', 'React', 'Svelte', 'PHP', 'Laravel', 'Tailwind CSS', 'TypeScript'].map(skill => (
+                  {['Next.js', 'React', 'Angular', 'Vue.js', 'PHP', 'Laravel', 'Svelte', 'Tailwind CSS', 'TypeScript'].map(skill => (
                     <span key={skill} className="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-mono text-cyan-100 hover:bg-cyan-500/30 hover:-translate-y-1 transition-all cursor-default">{skill}</span>
                   ))}
                 </div>
@@ -202,13 +202,13 @@ export default function Portfolio() {
                   <Database size={16} className="text-violet-400"/> Backend & Core
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {['Node.js', 'Express', 'Java', 'Spring Boot', 'Python', 'C#', 'ASP.NET', 'C++'].map(skill => (
+                  {['Go', 'Node.js', 'Express', 'Java', 'Spring Boot', 'Python', 'C++', 'C#', 'ASP.NET'].map(skill => (
                     <span key={skill} className="px-4 py-2 bg-violet-500/10 border border-violet-500/20 rounded-xl text-xs font-mono text-violet-100 hover:bg-violet-500/30 hover:-translate-y-1 transition-all cursor-default">{skill}</span>
                   ))}
                 </div>
               </div>
 
-              {/* Column 3: AI & Data Science (NEW) */}
+              {/* Column 3: AI & Data Science */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
                   <Brain size={16} className="text-emerald-400"/> AI & Data Science
@@ -226,7 +226,7 @@ export default function Portfolio() {
                   <Target size={16} className="text-blue-400"/> Robotics & DevOps
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {['ROS2', 'MoveIt2', 'Docker', 'CI/CD', 'Azure', 'AWS', 'GitLab / GitHub'].map(skill => (
+                  {['ROS2', 'MoveIt2', 'Docker', 'CI/CD', 'Azure', 'AWS', 'GitHub Actions'].map(skill => (
                     <span key={skill} className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-xl text-xs font-mono text-blue-100 hover:bg-blue-500/30 hover:-translate-y-1 transition-all cursor-default">{skill}</span>
                   ))}
                 </div>
