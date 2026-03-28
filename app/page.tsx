@@ -353,7 +353,7 @@ export default function Portfolio() {
                     <span key={tech} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono text-emerald-300 border border-white/10">{tech}</span>
                   ))}
                 </div>
-                <a href="https://github.com/kiarashdelavar/cycling-start-analysis" target="_blank" className="w-full py-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2 text-sm font-bold text-white hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all">
+                <a href="https://github.com/kiarashdelavar/cyclist-pose-estimation" target="_blank" className="w-full py-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2 text-sm font-bold text-white hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all">
                   View Source <ExternalLink size={16} />
                 </a>
               </div>
