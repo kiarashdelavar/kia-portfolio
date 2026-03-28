@@ -178,25 +178,28 @@ export default function Portfolio() {
             </a>
           </motion.div>
 
-          {/* Tech Stack */}
+         {/* Tech Stack */}
           <motion.div variants={fadeUpSpring} className="md:col-span-12 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-[2rem] rounded-bl-[4rem] p-8 md:p-12 hover:border-white/20 transition-colors">
              <h3 className="text-2xl font-black mb-10 flex items-center gap-3"><Layers className="text-violet-400"/> Technical Arsenal</h3>
              
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+              
+              {/* Column 1: Web & Frontend */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
-                  <LayoutTemplate size={16} className="text-cyan-400"/> Frontend
+                  <LayoutTemplate size={16} className="text-cyan-400"/> Web & Frontend
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {['Next.js', 'React', 'Svelte', 'Tailwind CSS', 'TypeScript', 'JavaScript'].map(skill => (
+                  {['Next.js', 'React', 'Svelte', 'PHP', 'Laravel', 'Tailwind CSS', 'TypeScript'].map(skill => (
                     <span key={skill} className="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-mono text-cyan-100 hover:bg-cyan-500/30 hover:-translate-y-1 transition-all cursor-default">{skill}</span>
                   ))}
                 </div>
               </div>
 
+              {/* Column 2: Backend & Systems */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
-                  <Database size={16} className="text-violet-400"/> Backend
+                  <Database size={16} className="text-violet-400"/> Backend & Core
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {['Node.js', 'Express', 'Java', 'Spring Boot', 'Python', 'C#', 'ASP.NET', 'C++'].map(skill => (
@@ -205,30 +208,33 @@ export default function Portfolio() {
                 </div>
               </div>
 
+              {/* Column 3: AI & Data Science (NEW) */}
               <div className="space-y-4">
                 <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
-                  <Target size={16} className="text-blue-400"/> Robotics
+                  <Brain size={16} className="text-emerald-400"/> AI & Data Science
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {['ROS2', 'MoveIt2', 'Robotics Control', 'Embedded Linux', 'Sensor Fusion', 'Validation'].map(skill => (
+                  {['MMPose', 'MediaPipe', 'OpenCV', 'PyTorch', 'Pose Estimation', 'Biometrics', 'NumPy'].map(skill => (
+                    <span key={skill} className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-xs font-mono text-emerald-100 hover:bg-emerald-500/30 hover:-translate-y-1 transition-all cursor-default">{skill}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Column 4: Robotics & DevOps */}
+              <div className="space-y-4">
+                <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
+                  <Target size={16} className="text-blue-400"/> Robotics & DevOps
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {['ROS2', 'MoveIt2', 'Docker', 'CI/CD', 'Azure', 'AWS', 'GitLab / GitHub'].map(skill => (
                     <span key={skill} className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-xl text-xs font-mono text-blue-100 hover:bg-blue-500/30 hover:-translate-y-1 transition-all cursor-default">{skill}</span>
                   ))}
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider mb-6 border-b border-white/10 pb-3">
-                  <Code2 size={16} className="text-emerald-400"/> Cloud & DevOps
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {['PostgreSQL', 'SQLite', 'Supabase', 'Docker', 'CI/CD', 'Azure', 'AWS', 'GitLab / GitHub'].map(skill => (
-                    <span key={skill} className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-xs font-mono text-emerald-100 hover:bg-emerald-500/30 hover:-translate-y-1 transition-all cursor-default">{skill}</span>
-                  ))}
-                </div>
-              </div>
             </div>
           </motion.div>
-        </motion.section>
+          </motion.section>
 
         {/* EXPERIENCE & EDUCATION */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-16">
