@@ -229,7 +229,7 @@ export default function Portfolio() {
                  <div className={`flex flex-col gap-2 font-mono text-sm font-medium ${theme.heading}`}>
                     <span>Persian <span className="text-violet-500">(Native)</span></span>
                     <span>English <span className="text-violet-500">(C1)</span></span>
-                    <span>Dutch <span className="text-violet-500">(B1)</span></span>
+                    <span>Dutch <span className="text-violet-500">(B1 - Actively Learning)</span></span>
                  </div>
                </div>
             </div>
