@@ -459,7 +459,7 @@ export default function Portfolio() {
                     <span key={tech} className={`px-3 py-1 border rounded-full text-[10px] font-mono font-bold ${isDarkMode ? 'bg-white/5 border-white/10 text-cyan-400' : 'bg-cyan-50 border-cyan-200 text-cyan-700'}`}>{tech}</span>
                   ))}
                 </div>
-                <a href="https://github.com/kiarashdelavar" target="_blank" className={`w-full py-3 rounded-xl border flex items-center justify-center gap-2 text-sm font-bold transition-all ${isDarkMode ? 'bg-white/5 border-white/10 text-white hover:bg-cyan-500 hover:text-black hover:border-cyan-500' : 'bg-cyan-50 border-cyan-200 text-cyan-900 hover:bg-cyan-500 hover:text-white'}`}>
+                <a href="https://github.com/kiarashdelavar/novara-saas" target="_blank" className={`w-full py-3 rounded-xl border flex items-center justify-center gap-2 text-sm font-bold transition-all ${isDarkMode ? 'bg-white/5 border-white/10 text-white hover:bg-cyan-500 hover:text-black hover:border-cyan-500' : 'bg-cyan-50 border-cyan-200 text-cyan-900 hover:bg-cyan-500 hover:text-white'}`}>
                   View Source <ExternalLink size={16} />
                 </a>
               </div>
