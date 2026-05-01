@@ -995,7 +995,7 @@ nav: isDarkMode
     </div>
   </div>
 
-  <div className="grid grid-cols-1 gap-9 lg:grid-cols-2">
+ <div className="grid grid-cols-1 items-start gap-9 lg:grid-cols-2">
     {projects.map((project, index) => {
       const Icon = project.icon;
 
@@ -1013,9 +1013,9 @@ nav: isDarkMode
         <motion.article
           key={project.title}
           variants={fadeUpSpring}
-         className={`cyber-project-card ${cardAccent} group relative min-h-[560px] overflow-hidden rounded-[2rem] border p-[1px] transition-all duration-500 hover:-translate-y-3`}
+        className={`cyber-project-card ${cardAccent} group relative overflow-hidden rounded-[2rem] border p-[1px] transition-all duration-500 hover:-translate-y-3`}
         >
-         <div className="cyber-card-inner relative flex min-h-[560px] flex-col overflow-hidden rounded-[2rem] p-8">
+        <div className="cyber-card-inner relative flex flex-col overflow-hidden rounded-[2rem] p-8">
             {/* Background FX */}
             <div className="cyber-card-grid absolute inset-0 opacity-30" />
             <div className="cyber-card-noise absolute inset-0 opacity-[0.07]" />

@@ -963,65 +963,6 @@ body {
   backdrop-filter: blur(22px);
 }
 
-/* ================================
-   FINAL READABILITY + GIF FIX
-   Paste this at the VERY BOTTOM
-================================ */
-
-/* Make the full-screen GIF more visible */
-.dark-portfolio .portfolio-gif-bg-image {
-  opacity: 0.58 !important;
-  filter: saturate(1.75) contrast(1.28) brightness(0.86) !important;
-}
-
-.dark-portfolio .portfolio-gif-readable-layer {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2, 4, 10, 0.56) 0%,
-      rgba(2, 4, 10, 0.42) 42%,
-      rgba(2, 4, 10, 0.68) 100%
-    ),
-    radial-gradient(circle at 28% 35%, rgba(34, 211, 238, 0.09), transparent 35%),
-    radial-gradient(circle at 78% 55%, rgba(139, 92, 246, 0.14), transparent 38%) !important;
-}
-
-/* Light mode: make GIF visible but keep the page clean */
-.light-portfolio .portfolio-gif-bg-image {
-  opacity: 0.32 !important;
-  filter: saturate(1.35) contrast(1.12) brightness(1.02) !important;
-  mix-blend-mode: multiply !important;
-}
-
-.light-portfolio .portfolio-gif-readable-layer {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(248, 251, 255, 0.72) 0%,
-      rgba(248, 251, 255, 0.60) 44%,
-      rgba(248, 251, 255, 0.78) 100%
-    ),
-    radial-gradient(circle at 16% 18%, rgba(34, 211, 238, 0.10), transparent 35%),
-    radial-gradient(circle at 88% 32%, rgba(139, 92, 246, 0.08), transparent 35%) !important;
-}
-
-/* Hero readable panel: readable but still lets GIF show */
-.dark-portfolio .hero-readable-panel::before {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.10), transparent 38%),
-    linear-gradient(135deg, rgba(2, 6, 23, 0.42), rgba(2, 6, 23, 0.18)) !important;
-  backdrop-filter: blur(2px) !important;
-  opacity: 0.9 !important;
-}
-
-.light-portfolio .hero-readable-panel::before {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.10), transparent 38%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.54)) !important;
-  backdrop-filter: blur(3px) !important;
-  box-shadow: 0 24px 90px rgba(15, 23, 42, 0.10) !important;
-}
-
 /* Make main glass cards readable in dark mode */
 .dark-portfolio main .backdrop-blur-2xl,
 .dark-portfolio main .backdrop-blur-xl {
@@ -1133,17 +1074,6 @@ body {
   color: #334155;
 }
 
-/* Terminal should stay readable over GIF */
-.dark-portfolio .terminal-scanline {
-  background: rgba(2, 6, 23, 0.78) !important;
-  border-color: rgba(34, 211, 238, 0.24) !important;
-}
-
-.light-portfolio .terminal-scanline {
-  background: rgba(255, 255, 255, 0.86) !important;
-  border-color: rgba(14, 165, 233, 0.28) !important;
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12) !important;
-}
 
 /* Contact section readability */
 .dark-portfolio .contact-info-panel,
@@ -1152,24 +1082,12 @@ body {
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.light-portfolio .contact-info-panel,
-.light-portfolio .contact-form-shell {
-  background: rgba(255, 255, 255, 0.86) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-}
 
 /* Contact values */
 .dark-portfolio .contact-value {
   color: #ffffff !important;
 }
 
-.light-portfolio .contact-value {
-  color: #0f172a !important;
-}
-
-.light-portfolio .contact-label {
-  color: #64748b !important;
-}
 
 /* Optional: make GIF even more visible on large screens */
 @media (min-width: 1024px) {
@@ -1182,77 +1100,13 @@ body {
   }
 }
 
-/* =========================================================
-   FINAL LIGHT MODE + PROJECT TEXT READABILITY FIX
-   Paste at the VERY BOTTOM of globals.css
-========================================================= */
-
-/* ---------- BACKGROUND GIF VISIBILITY ---------- */
-
-.dark-portfolio .portfolio-gif-bg-image {
-  opacity: 0.62 !important;
-  filter: saturate(1.75) contrast(1.22) brightness(0.88) !important;
-}
-
-.dark-portfolio .portfolio-gif-readable-layer {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2, 4, 10, 0.58) 0%,
-      rgba(2, 4, 10, 0.44) 42%,
-      rgba(2, 4, 10, 0.72) 100%
-    ),
-    radial-gradient(circle at 30% 35%, rgba(34, 211, 238, 0.08), transparent 35%),
-    radial-gradient(circle at 80% 55%, rgba(139, 92, 246, 0.12), transparent 38%) !important;
-}
-
-/* Light mode: GIF visible but still clean */
-.light-portfolio .portfolio-gif-bg-image {
-  opacity: 0.42 !important;
-  filter: saturate(1.45) contrast(1.16) brightness(1.02) !important;
-  mix-blend-mode: multiply !important;
-}
-
-.light-portfolio .portfolio-gif-readable-layer {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(248, 251, 255, 0.68) 0%,
-      rgba(248, 251, 255, 0.54) 44%,
-      rgba(248, 251, 255, 0.74) 100%
-    ),
-    radial-gradient(circle at 16% 18%, rgba(34, 211, 238, 0.08), transparent 35%),
-    radial-gradient(circle at 88% 32%, rgba(139, 92, 246, 0.07), transparent 35%) !important;
-}
-
-/* ---------- LIGHT MODE GENERAL TEXT ---------- */
-
-.light-portfolio h1,
-.light-portfolio h2,
-.light-portfolio h3,
-.light-portfolio h4,
-.light-portfolio strong {
-  color: #0f172a !important;
-  text-shadow: none !important;
-}
-
 .light-portfolio main p,
 .light-portfolio main li {
   color: #475569 !important;
   text-shadow: none !important;
 }
 
-/* ---------- GLASS CARDS IN LIGHT MODE ---------- */
 
-.light-portfolio main .backdrop-blur-2xl,
-.light-portfolio main .backdrop-blur-xl {
-  background-color: rgba(255, 255, 255, 0.88) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-  backdrop-filter: blur(22px) saturate(1.12) !important;
-  box-shadow:
-    0 28px 90px rgba(15, 23, 42, 0.10),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.78) !important;
-}
 
 /* ---------- PROJECT CARDS MUST STAY DARK IN LIGHT MODE ---------- */
 
@@ -1265,12 +1119,7 @@ body {
     0 0 45px rgba(34, 211, 238, 0.16) !important;
 }
 
-.light-portfolio .cyber-card-inner {
-  background:
-    radial-gradient(circle at top right, rgba(34, 211, 238, 0.18), transparent 32%),
-    radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.18), transparent 35%),
-    linear-gradient(145deg, rgba(2, 6, 23, 0.98), rgba(3, 8, 22, 0.97)) !important;
-}
+
 
 /* Force all project card main text to readable colors */
 .light-portfolio .cyber-card-inner h4,
@@ -1379,54 +1228,110 @@ body {
   color: currentColor !important;
 }
 
-/* ---------- CONTACT LIGHT MODE ---------- */
+/* =========================================================
+   FINAL FIX: PROJECT CARD HEIGHT + TEXT READABILITY
+   Paste at the VERY BOTTOM of globals.css
+========================================================= */
 
-.light-portfolio .contact-info-panel,
-.light-portfolio .contact-form-shell {
-  background: rgba(255, 255, 255, 0.90) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-  box-shadow:
-    0 28px 90px rgba(15, 23, 42, 0.10),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.80) !important;
+/* Stop grid cards from stretching to the tallest card */
+#projects .grid {
+  align-items: start !important;
 }
 
-.light-portfolio .contact-card {
-  background: rgba(255, 255, 255, 0.86) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
+/* Remove forced large height from project cards */
+.cyber-project-card,
+.cyber-card-inner {
+  min-height: auto !important;
 }
 
-.light-portfolio .contact-value {
-  color: #0f172a !important;
+/* Keep dark cyber cards readable in both dark and light mode */
+.light-portfolio .cyber-card-inner,
+.dark-portfolio .cyber-card-inner {
+  background:
+    radial-gradient(circle at top right, rgba(34, 211, 238, 0.18), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.18), transparent 35%),
+    linear-gradient(145deg, rgba(2, 6, 23, 0.98), rgba(3, 8, 22, 0.97)) !important;
 }
 
-.light-portfolio .contact-label {
-  color: #64748b !important;
+/* Fix project cards being affected by global light glass rules */
+.light-portfolio .cyber-card-inner .backdrop-blur-xl,
+.light-portfolio .cyber-card-inner .backdrop-blur-2xl,
+.dark-portfolio .cyber-card-inner .backdrop-blur-xl,
+.dark-portfolio .cyber-card-inner .backdrop-blur-2xl {
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
-.light-portfolio .contact-input {
-  background: rgba(255, 255, 255, 0.96) !important;
-  border-color: rgba(15, 23, 42, 0.16) !important;
-  color: #0f172a !important;
+
+
+/* Project description */
+.light-portfolio .cyber-card-inner > p,
+.dark-portfolio .cyber-card-inner > p {
+  color: #dbeafe !important;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.65) !important;
 }
 
-/* ---------- EXPERIENCE / EDUCATION READABLE PANELS ---------- */
 
-.dark-portfolio #experience .group.relative,
-.dark-portfolio #education .group.relative {
-  background: rgba(2, 6, 23, 0.62) !important;
-  border: 1px solid rgba(255, 255, 255, 0.09) !important;
-  border-radius: 22px !important;
-  padding: 22px 24px !important;
-  backdrop-filter: blur(16px) saturate(1.15) !important;
-  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.24) !important;
+/* Impact boxes inside project cards */
+.light-portfolio .cyber-card-inner div[class*="rounded-xl"],
+.dark-portfolio .cyber-card-inner div[class*="rounded-xl"] {
+  background: rgba(15, 23, 42, 0.82) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: #f8fafc !important;
+  backdrop-filter: blur(16px) !important;
 }
 
-.light-portfolio #experience .group.relative,
-.light-portfolio #education .group.relative {
-  background: rgba(255, 255, 255, 0.86) !important;
-  border: 1px solid rgba(15, 23, 42, 0.10) !important;
-  border-radius: 22px !important;
-  padding: 22px 24px !important;
-  backdrop-filter: blur(18px) saturate(1.1) !important;
-  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.08) !important;
+/* Impact text */
+.light-portfolio .cyber-card-inner div[class*="rounded-xl"] span,
+.dark-portfolio .cyber-card-inner div[class*="rounded-xl"] span {
+  color: #f8fafc !important;
+  text-shadow: none !important;
 }
+
+
+
+/* Category and period chips */
+.light-portfolio .cyber-card-inner span[class*="rounded-full"],
+.dark-portfolio .cyber-card-inner span[class*="rounded-full"] {
+  background: rgba(2, 6, 23, 0.82) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: #e2e8f0 !important;
+}
+
+/* Contact GIF text readability */
+.light-portfolio .contact-gif-shell h4,
+.light-portfolio .contact-gif-shell p,
+.dark-portfolio .contact-gif-shell h4,
+.dark-portfolio .contact-gif-shell p {
+  color: #ffffff !important;
+  text-shadow: 0 5px 24px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Add stronger overlay on GIF card */
+.contact-gif-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.16));
+  z-index: 1;
+}
+
+/* Keep contact GIF content above overlay */
+.contact-gif-shell > div,
+.contact-gif-shell > span {
+  z-index: 2;
+}
+
+
+/* But do not override project card paragraph colors */
+.light-portfolio .cyber-card-inner p,
+.light-portfolio .cyber-card-inner li,
+.dark-portfolio .cyber-card-inner p,
+.dark-portfolio .cyber-card-inner li {
+  color: #dbeafe !important;
+}
+
+
+
