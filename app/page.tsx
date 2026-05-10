@@ -39,7 +39,7 @@ import {
   CircuitBoard,
   Zap,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -234,33 +234,50 @@ export default function Portfolio() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const fadeUpSpring = {
-    hidden: { opacity: 0, y: 42 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 82, damping: 19 },
+  const fadeUpSpring: Variants = {
+  hidden: { opacity: 0, y: 42 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 82,
+      damping: 19,
     },
-  };
+  },
+};
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
-  };
-
-  const floatAnim = {
-    animate: {
-      y: [0, -15, 0],
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
     },
-  };
+  },
+};
 
-  const floatAnimReverse = {
-    animate: {
-      y: [0, 15, 0],
-      transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+const floatAnim: Variants = {
+  animate: {
+    y: [0, -15, 0],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
     },
-  };
+  },
+};
+
+const floatAnimReverse: Variants = {
+  animate: {
+    y: [0, 15, 0],
+    transition: {
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
+    },
+  },
+};
 
   const theme = {
     bg: isDarkMode
