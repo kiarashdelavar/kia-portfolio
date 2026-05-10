@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  type LucideIcon,
   Github,
   Linkedin,
   Gitlab,
@@ -38,6 +39,21 @@ import {
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
+type Project = {
+  title: string;
+  label: string;
+  period: string;
+  location: string;
+  description: string;
+  impact: string[];
+  tech: string[];
+  source: string;
+  website?: string;
+  accent: "cyan" | "emerald" | "violet" | "orange" | "blue";
+  icon: LucideIcon;
+  codeName: string;
+};
 
 const SpaceDust = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const [elements, setElements] = useState<any[]>([]);
@@ -204,22 +220,26 @@ export default function Portfolio() {
   };
 
   const theme = {
-   bg: isDarkMode ? "bg-[#02040a] text-slate-200" : "bg-[#f7fbff] text-slate-800",
-heading: isDarkMode ? "text-white" : "text-slate-950",
-muted: isDarkMode ? "text-slate-400" : "text-slate-600",
-card: isDarkMode
-  ? "bg-white/[0.02] border-white/10"
-  : "bg-white/75 border-slate-200/80 shadow-[0_20px_70px_rgba(15,23,42,0.08)]",
-cardHover: isDarkMode ? "hover:bg-white/[0.04]" : "hover:bg-white hover:shadow-[0_24px_90px_rgba(15,23,42,0.12)]",
-badge: isDarkMode
-  ? "bg-white/5 border-white/10"
-  : "bg-white/80 border-slate-200 text-slate-900 shadow-sm",
-input: isDarkMode
-  ? "bg-[#0a0f1c] border-white/10 text-white placeholder:text-slate-600"
-  : "bg-white/90 border-slate-300 text-slate-950 placeholder:text-slate-400",
-nav: isDarkMode
-  ? "bg-white/5 border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] text-white"
-  : "bg-white/90 border-slate-300 shadow-[0_18px_60px_rgba(15,23,42,0.12)] text-slate-950",
+    bg: isDarkMode
+      ? "bg-[#02040a] text-slate-200"
+      : "bg-[#f7fbff] text-slate-800",
+    heading: isDarkMode ? "text-white" : "text-slate-950",
+    muted: isDarkMode ? "text-slate-400" : "text-slate-600",
+    card: isDarkMode
+      ? "bg-white/[0.02] border-white/10"
+      : "bg-white/75 border-slate-200/80 shadow-[0_20px_70px_rgba(15,23,42,0.08)]",
+    cardHover: isDarkMode
+      ? "hover:bg-white/[0.04]"
+      : "hover:bg-white hover:shadow-[0_24px_90px_rgba(15,23,42,0.12)]",
+    badge: isDarkMode
+      ? "bg-white/5 border-white/10"
+      : "bg-white/80 border-slate-200 text-slate-900 shadow-sm",
+    input: isDarkMode
+      ? "bg-[#0a0f1c] border-white/10 text-white placeholder:text-slate-600"
+      : "bg-white/90 border-slate-300 text-slate-950 placeholder:text-slate-400",
+    nav: isDarkMode
+      ? "bg-white/5 border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] text-white"
+      : "bg-white/90 border-slate-300 shadow-[0_18px_60px_rgba(15,23,42,0.12)] text-slate-950",
     glow: isDarkMode ? "mix-blend-screen" : "mix-blend-multiply opacity-30",
     radarRing: isDarkMode ? "border-[#02040a]" : "border-slate-50",
     footer: isDarkMode ? "border-white/5 bg-[#02040a]" : "border-black/5 bg-slate-50",
@@ -234,7 +254,7 @@ nav: isDarkMode
     "status: ready_to_build",
   ];
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Abbas Agha - AI Financial Copilot",
       label: "AI FINTECH / HACKATHON",
@@ -304,6 +324,7 @@ nav: isDarkMode
       ],
       tech: ["Next.js", "Supabase", "Spring Boot", "AI", "Tailwind"],
       source: "https://github.com/kiarashdelavar/novara-saas",
+      website: "https://www.novarasme.com/en",
       accent: "violet",
       icon: Sparkles,
       codeName: "NOVARA",
@@ -367,28 +388,37 @@ nav: isDarkMode
 
   return (
     <div
-  className={`relative min-h-screen overflow-hidden pb-24 font-sans selection:bg-cyan-500 selection:text-black transition-colors duration-700 ${
-    isDarkMode ? "dark-portfolio" : "light-portfolio"
-  } ${theme.bg}`}
->
+      className={`relative min-h-screen overflow-hidden pb-24 font-sans selection:bg-cyan-500 selection:text-black transition-colors duration-700 ${
+        isDarkMode ? "dark-portfolio" : "light-portfolio"
+      } ${theme.bg}`}
+    >
       <SpaceDust isDarkMode={isDarkMode} />
       <CyberBackground isDarkMode={isDarkMode} />
 
-      <div className="portfolio-gif-bg pointer-events-none fixed inset-0 z-0 overflow-hidden">
-  <img
-    src="/cyber-warrior.gif"
-    alt=""
-    aria-hidden="true"
-    className="portfolio-gif-bg-image"
-  />
-  <div className="portfolio-gif-readable-layer" />
-</div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(34,211,238,0.03)_1px,transparent_1px)] [background-size:32px_32px]" />
+      <div className="portfolio-mp4-bg pointer-events-none fixed inset-0 z-[1] hidden overflow-hidden md:block">
+        <video
+          className="portfolio-mp4-bg-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="/test.mp4" type="video/mp4" />
+        </video>
+
+        <div className="portfolio-mp4-readable-layer" />
+      </div>
+
+      <div className="pointer-events-none fixed inset-0 z-[2] bg-[radial-gradient(rgba(34,211,238,0.035)_1px,transparent_1px)] [background-size:32px_32px]" />
+
       <div
-        className={`pointer-events-none absolute left-[-10%] top-[-20%] h-[50vw] w-[50vw] rounded-full bg-cyan-600/10 blur-[150px] transition-all duration-700 ${theme.glow}`}
+        className={`pointer-events-none fixed left-[-10%] top-[-20%] z-[2] h-[50vw] w-[50vw] rounded-full bg-cyan-600/10 blur-[150px] transition-all duration-700 ${theme.glow}`}
       />
+
       <div
-        className={`pointer-events-none absolute bottom-[10%] right-[-10%] h-[40vw] w-[40vw] rounded-full bg-violet-600/10 blur-[150px] transition-all duration-700 ${theme.glow}`}
+        className={`pointer-events-none fixed bottom-[10%] right-[-10%] z-[2] h-[40vw] w-[40vw] rounded-full bg-violet-600/10 blur-[150px] transition-all duration-700 ${theme.glow}`}
       />
 
       <button
@@ -420,13 +450,13 @@ nav: isDarkMode
         </a>
       </nav>
 
-      <main className="relative z-10 mx-auto max-w-6xl space-y-40 px-6 pt-32">
+      <main className="relative z-[10] mx-auto max-w-6xl space-y-40 px-6 pt-32">
         <section className="relative flex min-h-[85vh] flex-col items-center justify-between gap-16 lg:flex-row">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-         className="hero-readable-panel relative z-20 flex-1 space-y-8"
+            className="hero-readable-panel relative z-20 flex-1 space-y-8"
           >
             <div
               className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-xs text-cyan-500 shadow-[0_0_20px_rgba(34,211,238,0.2)] ${
@@ -572,9 +602,18 @@ nav: isDarkMode
 
             <div className="radar-container h-72 w-72 md:h-[450px] md:w-[450px]">
               <div className="radar-sweep" />
-              <div className="radar-target" style={{ top: "25%", left: "65%", animationDelay: "0s" }} />
-              <div className="radar-target" style={{ top: "75%", left: "35%", animationDelay: "1.2s" }} />
-              <div className="radar-target" style={{ top: "45%", left: "85%", animationDelay: "2.5s" }} />
+              <div
+                className="radar-target"
+                style={{ top: "25%", left: "65%", animationDelay: "0s" }}
+              />
+              <div
+                className="radar-target"
+                style={{ top: "75%", left: "35%", animationDelay: "1.2s" }}
+              />
+              <div
+                className="radar-target"
+                style={{ top: "45%", left: "85%", animationDelay: "2.5s" }}
+              />
 
               <div
                 className={`absolute left-1/2 top-1/2 z-10 h-36 w-36 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-4 ring-2 ring-cyan-400/50 shadow-[0_0_60px_rgba(34,211,238,0.5)] transition-colors duration-700 md:h-48 md:w-48 ${theme.radarRing}`}
@@ -604,6 +643,7 @@ nav: isDarkMode
             className={`group relative overflow-hidden rounded-[2rem] rounded-br-[4rem] rounded-tl-[4rem] border p-8 backdrop-blur-2xl transition-all md:col-span-8 md:p-14 ${theme.card}`}
           >
             <div className="absolute right-0 top-0 h-64 w-64 bg-cyan-500/10 blur-[80px] transition-all duration-700 group-hover:bg-cyan-500/20" />
+
             <h3
               className={`mb-8 flex items-center gap-3 text-3xl font-black transition-colors duration-700 ${theme.heading}`}
             >
@@ -619,11 +659,13 @@ nav: isDarkMode
                 coding is not just about making things look nice, it’s about building
                 systems that work well in real life.
               </p>
+
               <p>
                 I enjoy working across the whole stack. I like building the front-end
                 of websites, but I also love working with back-end logic and databases.
                 Recently, I have become very interested in Data Science.
               </p>
+
               <p>
                 Whether I’m writing C++ for a robotic arm, analyzing data in Python, or
                 building a web app with Next.js, I focus on writing simple, clean, and
@@ -645,6 +687,7 @@ nav: isDarkMode
                 >
                   <MapPin size={16} /> Base
                 </h4>
+
                 <p className="font-mono text-lg font-bold text-cyan-500">
                   Deventer, The Netherlands
                 </p>
@@ -656,6 +699,7 @@ nav: isDarkMode
                 >
                   <Globe size={16} /> Languages
                 </h4>
+
                 <div className={`flex flex-col gap-2 font-mono text-sm font-medium ${theme.heading}`}>
                   <span>
                     Persian <span className="text-violet-500">(Native)</span>
@@ -664,7 +708,8 @@ nav: isDarkMode
                     English <span className="text-violet-500">(C1)</span>
                   </span>
                   <span>
-                    Dutch <span className="text-violet-500">(B1 - Actively Learning)</span>
+                    Dutch{" "}
+                    <span className="text-violet-500">(B1 - Actively Learning)</span>
                   </span>
                 </div>
               </div>
@@ -715,19 +760,45 @@ nav: isDarkMode
                   title: "Backend & Core",
                   icon: Database,
                   color: "violet",
-                  skills: ["Go", "Node.js", "Express", "Java", "Spring", "Python", "C++", "C#", "ASP.NET"],
+                  skills: [
+                    "Go",
+                    "Node.js",
+                    "Express",
+                    "Java",
+                    "Spring",
+                    "Python",
+                    "C++",
+                    "C#",
+                    "ASP.NET",
+                  ],
                 },
                 {
                   title: "AI & Data",
                   icon: Brain,
                   color: "emerald",
-                  skills: ["MMPose", "MediaPipe", "OpenCV", "PyTorch", "Pose Estimation", "Biometrics", "NumPy"],
+                  skills: [
+                    "MMPose",
+                    "MediaPipe",
+                    "OpenCV",
+                    "PyTorch",
+                    "Pose Estimation",
+                    "Biometrics",
+                    "NumPy",
+                  ],
                 },
                 {
                   title: "Robotics & Ops",
                   icon: Target,
                   color: "blue",
-                  skills: ["ROS2", "MoveIt2", "Docker", "CI/CD", "Azure", "AWS", "GitHub Actions"],
+                  skills: [
+                    "ROS2",
+                    "MoveIt2",
+                    "Docker",
+                    "CI/CD",
+                    "Azure",
+                    "AWS",
+                    "GitHub Actions",
+                  ],
                 },
               ].map((group) => {
                 const Icon = group.icon;
@@ -785,6 +856,7 @@ nav: isDarkMode
           >
             <div className="mb-12 flex items-center gap-4">
               <Briefcase className="text-cyan-500" size={28} />
+
               <h3 className={`text-3xl font-black tracking-tight ${theme.heading}`}>
                 Experience
               </h3>
@@ -830,6 +902,7 @@ nav: isDarkMode
                 },
               ].map((item) => {
                 const Icon = item.icon;
+
                 const color =
                   item.color === "emerald"
                     ? "text-emerald-500 bg-emerald-500 shadow-[0_0_15px_#34d399]"
@@ -856,15 +929,19 @@ nav: isDarkMode
                       <span className="flex items-center gap-1">
                         <Briefcase size={12} /> {item.company}
                       </span>
+
                       <span className={`flex items-center gap-1 ${theme.muted}`}>
                         <MapPin size={12} /> Deventer, NL
                       </span>
+
                       <span className={`flex items-center gap-1 ${theme.muted}`}>
                         <Calendar size={12} /> {item.date}
                       </span>
                     </p>
 
-                    <p className={`mt-3 text-sm leading-relaxed ${theme.muted}`}>{item.text}</p>
+                    <p className={`mt-3 text-sm leading-relaxed ${theme.muted}`}>
+                      {item.text}
+                    </p>
                   </motion.div>
                 );
               })}
@@ -880,6 +957,7 @@ nav: isDarkMode
           >
             <div className="mb-12 flex items-center gap-4">
               <GraduationCap className="text-violet-500" size={28} />
+
               <h3 className={`text-3xl font-black tracking-tight ${theme.heading}`}>
                 Education
               </h3>
@@ -890,18 +968,25 @@ nav: isDarkMode
                 isDarkMode ? "border-white/10" : "border-black/10"
               }`}
             >
-              <motion.div variants={fadeUpSpring} className="group relative transition-transform hover:translate-x-2">
+              <motion.div
+                variants={fadeUpSpring}
+                className="group relative transition-transform hover:translate-x-2"
+              >
                 <span className="absolute -left-[49px] top-1.5 h-4 w-4 rounded-full bg-violet-500 shadow-[0_0_15px_#a855f7] transition-transform duration-500 group-hover:scale-150" />
+
                 <h4 className={`text-xl font-bold ${theme.heading}`}>
                   BASc, Software Engineering
                 </h4>
+
                 <p className="mt-2 mb-3 flex flex-wrap items-center gap-4 font-mono text-xs font-bold text-violet-500">
                   <span className="flex items-center gap-1">
                     <GraduationCap size={12} /> Saxion University
                   </span>
+
                   <span className={`flex items-center gap-1 ${theme.muted}`}>
                     <MapPin size={12} /> Deventer, NL
                   </span>
+
                   <span className={`flex items-center gap-1 ${theme.muted}`}>
                     <Calendar size={12} /> Sept 2024 - Present
                   </span>
@@ -912,10 +997,12 @@ nav: isDarkMode
                     <ChevronRight size={14} className="mt-1 flex-shrink-0 text-cyan-500" />
                     Novel-T Entrepreneurial Summer School
                   </li>
+
                   <li className="flex items-start gap-2">
                     <ChevronRight size={14} className="mt-1 flex-shrink-0 text-cyan-500" />
                     Member of Honours Community
                   </li>
+
                   <li className="flex items-start gap-2">
                     <ChevronRight size={14} className="mt-1 flex-shrink-0 text-cyan-500" />
                     E³UDRES² Design Thinking & Prototyping
@@ -923,26 +1010,34 @@ nav: isDarkMode
                 </ul>
               </motion.div>
 
-              <motion.div variants={fadeUpSpring} className="group relative transition-transform hover:translate-x-2">
+              <motion.div
+                variants={fadeUpSpring}
+                className="group relative transition-transform hover:translate-x-2"
+              >
                 <span
                   className={`absolute -left-[49px] top-1.5 h-4 w-4 rounded-full transition-colors duration-500 group-hover:bg-cyan-500 ${
                     isDarkMode ? "bg-white/20" : "bg-black/20"
                   }`}
                 />
+
                 <h4 className={`text-xl font-bold ${theme.heading}`}>
                   High School Diploma, Math & Physics
                 </h4>
+
                 <p className="mt-2 mb-3 flex flex-wrap items-center gap-4 font-mono text-xs font-bold text-slate-500">
                   <span className="flex items-center gap-1">
                     <GraduationCap size={12} /> Energy High School
                   </span>
+
                   <span className={`flex items-center gap-1 ${theme.muted}`}>
                     <MapPin size={12} /> Mashhad, Iran
                   </span>
+
                   <span className={`flex items-center gap-1 ${theme.muted}`}>
                     <Calendar size={12} /> 2020 - 2023
                   </span>
                 </p>
+
                 <p className={`text-sm leading-relaxed ${theme.muted}`}>
                   Focus on advanced mathematics and complex problem-solving skills.
                 </p>
@@ -951,409 +1046,425 @@ nav: isDarkMode
           </motion.div>
         </section>
 
-       {/* PROJECTS SECTION */}
-<motion.section
-  id="projects"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, margin: "-100px" }}
-  variants={staggerContainer}
-  className="scroll-mt-32 space-y-14"
->
-  <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-    <div>
-      <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.25em] text-cyan-300 shadow-[0_0_35px_rgba(34,211,238,0.18)]">
-        <ScanLine size={15} />
-        project_vault.exe
-      </div>
-
-      <h3 className={`text-5xl md:text-7xl font-black tracking-tighter ${theme.heading}`}>
-        Selected{" "}
-        <span className="bg-gradient-to-r from-cyan-300 via-blue-500 to-violet-500 bg-clip-text text-transparent">
-          Builds
-        </span>
-      </h3>
-
-      <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${theme.muted}`}>
-        A collection of AI, robotics, fintech, full-stack, and algorithmic systems built with real engineering focus.
-      </p>
-    </div>
-
-    <div
-      className={`terminal-scanline rounded-2xl border p-5 font-mono text-xs shadow-[0_0_35px_rgba(34,211,238,0.08)] ${
-        isDarkMode
-          ? "border-cyan-400/20 bg-black/40"
-          : "border-cyan-300 bg-white/70"
-      }`}
-    >
-      <div className="flex items-center gap-2 text-emerald-400">
-        <ShieldCheck size={14} />
-        build_status: online
-      </div>
-      <div className={theme.muted}>projects_loaded: {projects.length}</div>
-      <div className={theme.muted}>security_layer: enabled</div>
-    </div>
-  </div>
-
- <div className="grid grid-cols-1 items-start gap-9 lg:grid-cols-2">
-    {projects.map((project, index) => {
-      const Icon = project.icon;
-
-      const cyberAccent: Record<string, string> = {
-        cyan: "project-cyan",
-        emerald: "project-emerald",
-        violet: "project-violet",
-        orange: "project-orange",
-        blue: "project-blue",
-      };
-
-      const cardAccent = cyberAccent[project.accent] || cyberAccent.cyan;
-
-      return (
-        <motion.article
-          key={project.title}
-          variants={fadeUpSpring}
-        className={`cyber-project-card ${cardAccent} group relative overflow-hidden rounded-[2rem] border p-[1px] transition-all duration-500 hover:-translate-y-3`}
+        <motion.section
+          id="projects"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="scroll-mt-32 space-y-14"
         >
-        <div className="cyber-card-inner relative flex flex-col overflow-hidden rounded-[2rem] p-8">
-            {/* Background FX */}
-            <div className="cyber-card-grid absolute inset-0 opacity-30" />
-            <div className="cyber-card-noise absolute inset-0 opacity-[0.07]" />
-            <div className="cyber-card-glow absolute -right-24 -top-24 h-64 w-64 rounded-full blur-[90px]" />
-            <div className="cyber-card-bottom-glow absolute -bottom-24 -left-24 h-56 w-56 rounded-full blur-[90px]" />
-
-            {/* Top command bar */}
-            <div className="relative z-10 mb-8 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.8)]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.25em] text-cyan-300 shadow-[0_0_35px_rgba(34,211,238,0.18)]">
+                <ScanLine size={15} />
+                project_vault.exe
               </div>
 
-              <div className="rounded-full border border-white/10 bg-black/30 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400 backdrop-blur-xl">
-                node_{String(index + 1).padStart(2, "0")}
-              </div>
-            </div>
-
-            {/* Header */}
-            <div className="relative z-10 mb-7 flex items-start justify-between gap-5">
-              <div className="min-w-0">
-                <div className="mb-4 flex flex-wrap items-center gap-2">
-                  <span className="cyber-chip rounded-full border px-3 py-1.5 font-mono text-[10px] font-black uppercase tracking-[0.22em]">
-                    {project.label}
-                  </span>
-
-                  <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] text-slate-400">
-                    {project.period}
-                  </span>
-                </div>
-
-                <h4 className="max-w-[90%] text-3xl font-black leading-tight tracking-tight text-white transition-colors duration-300 group-hover:text-white md:text-4xl">
-                  {project.title}
-                </h4>
-              </div>
-
-              <div className="cyber-icon-box relative flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl border bg-black/40 backdrop-blur-xl transition-all duration-500 group-hover:rotate-6 group-hover:scale-110">
-                <Icon size={30} />
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="relative z-10 mb-7 flex items-center gap-2 font-mono text-xs text-slate-400">
-              <MapPin size={14} />
-              <span>{project.location}</span>
-            </div>
-
-            {/* Description */}
-            <p className="relative z-10 mb-7 text-[15px] leading-7 text-slate-300">
-              {project.description}
-            </p>
-
-            {/* Impact list */}
-            <div className="relative z-10 mb-8 grid gap-3">
-              {project.impact.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.025] px-4 py-3 text-sm text-slate-300 backdrop-blur-xl transition-all duration-300 group-hover:border-white/10 group-hover:bg-white/[0.045]"
-                >
-                  <Check size={16} className="mt-0.5 flex-shrink-0 text-emerald-400" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Tech chips */}
-            <div className="relative z-10 mb-9 flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-lg border border-white/10 bg-black/30 px-3 py-2 font-mono text-[11px] font-bold text-slate-300 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:text-cyan-200"
-                >
-                  {tech}
+              <h3 className={`text-5xl font-black tracking-tighter md:text-7xl ${theme.heading}`}>
+                Selected{" "}
+                <span className="bg-gradient-to-r from-cyan-300 via-blue-500 to-violet-500 bg-clip-text text-transparent">
+                  Builds
                 </span>
-              ))}
-            </div>
+              </h3>
 
-            {/* Bottom */}
-            <div className="relative z-10 mt-auto flex items-center justify-between gap-4 border-t border-white/10 pt-6">
-              <div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-slate-500">
-                  system_id
-                </div>
-                <div className="cyber-code-name mt-1 font-mono text-xs font-black uppercase tracking-[0.25em]">
-                  {project.codeName}
-                </div>
-              </div>
-
-              <a
-                href={project.source}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cyber-source-button group/link inline-flex items-center gap-2 rounded-2xl border px-5 py-3 text-sm font-black text-white transition-all duration-300 hover:scale-105"
-              >
-                View Source
-                <ExternalLink size={16} className="transition-transform duration-300 group-hover/link:translate-x-1" />
-              </a>
-            </div>
-
-            {/* Corner lines */}
-            <span className="cyber-corner cyber-corner-tl" />
-            <span className="cyber-corner cyber-corner-tr" />
-            <span className="cyber-corner cyber-corner-bl" />
-            <span className="cyber-corner cyber-corner-br" />
-          </div>
-        </motion.article>
-      );
-    })}
-  </div>
-</motion.section>
-       {/* CONTACT SECTION */}
-{/* CONTACT SECTION */}
-<motion.section
-  id="contact"
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, margin: "-100px" }}
-  transition={{ duration: 0.8 }}
-  className="contact-cyber-zone relative overflow-hidden rounded-[3rem] border px-6 py-10 md:px-10 md:py-14"
->
-  <div className="contact-grid-bg" />
-  <div className="contact-glow contact-glow-one" />
-  <div className="contact-glow contact-glow-two" />
-
-  <motion.div
-    className="contact-line contact-line-one"
-    animate={{ x: ["-20%", "25%", "-20%"], opacity: [0.1, 0.45, 0.1] }}
-    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-  />
-
-  <motion.div
-    className="contact-line contact-line-two"
-    animate={{ x: ["20%", "-25%", "20%"], opacity: [0.1, 0.35, 0.1] }}
-    transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-  />
-
-  <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch">
-    {/* Left GIF visual */}
-    <motion.div
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="lg:col-span-5"
-    >
-      <div className="contact-gif-shell group relative h-[420px] overflow-hidden rounded-[2.2rem] border md:h-[560px]">
-        <img
-          src="/Kidmograph-ViusalAtelier8-Art-Cyber-1.gif"
-          alt="Cyber visual animation"
-          className="h-full w-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-        <div className="absolute inset-0 contact-gif-scan" />
-
-        <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full border border-cyan-400/30 bg-black/40 px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-xl">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
-          signal_online
-        </div>
-
-        <div className="absolute bottom-6 left-6 right-6">
-          <p className="font-mono text-xs uppercase tracking-[0.35em] text-cyan-300">
-            visual system
-          </p>
-          <h4 className="mt-2 text-3xl font-black text-white md:text-4xl">
-            AI Interface Mode
-          </h4>
-          <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
-            Building systems with software, AI, robotics, and real-world engineering.
-          </p>
-        </div>
-
-        <span className="cyber-corner cyber-corner-tl" />
-        <span className="cyber-corner cyber-corner-tr" />
-        <span className="cyber-corner cyber-corner-bl" />
-        <span className="cyber-corner cyber-corner-br" />
-      </div>
-    </motion.div>
-
-    {/* Right contact content */}
-    <div className="space-y-7 lg:col-span-7">
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="contact-info-panel rounded-[2.2rem] border p-7 md:p-9"
-      >
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-2.5 font-mono text-xs text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-          <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-cyan-500" />
-          Open to Opportunities
-        </div>
-
-        <h3 className={`text-5xl font-black tracking-tighter md:text-6xl ${theme.heading}`}>
-          Let&apos;s talk.
-        </h3>
-
-        <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${theme.muted}`}>
-          If you have a project idea, an internship opportunity, or just want to
-          connect, feel free to message me. I’m always open to new ideas and
-          collaborations.
-        </p>
-
-        <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <button
-            onClick={handleCopyEmail}
-            className="contact-card group md:col-span-2"
-          >
-            <div className="contact-icon-box bg-cyan-500/10 text-cyan-400">
-              {copied ? <Check size={20} /> : <Mail size={20} />}
-            </div>
-
-            <div className="min-w-0">
-              <p className="contact-label">Email</p>
-              <p className="contact-value break-all">
-                {copied ? "Copied to clipboard!" : email}
+              <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${theme.muted}`}>
+                A collection of AI, robotics, fintech, full-stack, and algorithmic systems
+                built with real engineering focus.
               </p>
             </div>
-          </button>
 
-          <a href="tel:+31617174048" className="contact-card group">
-            <div className="contact-icon-box bg-violet-500/10 text-violet-400">
-              <Phone size={20} />
+            <div
+              className={`terminal-scanline rounded-2xl border p-5 font-mono text-xs shadow-[0_0_35px_rgba(34,211,238,0.08)] ${
+                isDarkMode
+                  ? "border-cyan-400/20 bg-black/40"
+                  : "border-cyan-300 bg-white/70"
+              }`}
+            >
+              <div className="flex items-center gap-2 text-emerald-400">
+                <ShieldCheck size={14} />
+                build_status: online
+              </div>
+
+              <div className={theme.muted}>projects_loaded: {projects.length}</div>
+              <div className={theme.muted}>security_layer: enabled</div>
             </div>
+          </div>
 
-            <div>
-              <p className="contact-label">Phone</p>
-              <p className="contact-value">+31 617174048</p>
-            </div>
-          </a>
+          <div className="grid grid-cols-1 items-start gap-9 lg:grid-cols-2">
+            {projects.map((project, index) => {
+              const Icon = project.icon;
 
-          <a
-            href="https://www.linkedin.com/in/kiarash-delavar-b1a542289/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-card group"
-          >
-            <div className="contact-icon-box bg-blue-500/10 text-blue-400">
-              <Linkedin size={20} />
-            </div>
+              const cyberAccent: Record<string, string> = {
+                cyan: "project-cyan",
+                emerald: "project-emerald",
+                violet: "project-violet",
+                orange: "project-orange",
+                blue: "project-blue",
+              };
 
-            <div>
-              <p className="contact-label">LinkedIn</p>
-              <p className="contact-value">Kiarash</p>
-            </div>
-          </a>
+              const cardAccent = cyberAccent[project.accent] || cyberAccent.cyan;
 
-          <a
-            href="https://github.com/kiarashdelavar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-card group md:col-span-2"
-          >
-            <div className="contact-icon-box bg-slate-500/10 text-slate-200">
-              <Github size={20} />
-            </div>
+              return (
+                <motion.article
+                  key={project.title}
+                  variants={fadeUpSpring}
+                  className={`cyber-project-card ${cardAccent} group relative overflow-hidden rounded-[2rem] border p-[1px] transition-all duration-500 hover:-translate-y-3`}
+                >
+                  <div className="cyber-card-inner relative flex flex-col overflow-hidden rounded-[2rem] p-8">
+                    <div className="cyber-card-grid absolute inset-0 opacity-30" />
+                    <div className="cyber-card-noise absolute inset-0 opacity-[0.07]" />
+                    <div className="cyber-card-glow absolute -right-24 -top-24 h-64 w-64 rounded-full blur-[90px]" />
+                    <div className="cyber-card-bottom-glow absolute -bottom-24 -left-24 h-56 w-56 rounded-full blur-[90px]" />
 
-            <div>
-              <p className="contact-label">GitHub</p>
-              <p className="contact-value">@kiarashdelavar</p>
-            </div>
-          </a>
-        </div>
-      </motion.div>
+                    <div className="relative z-10 mb-8 flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.8)]" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
+                      </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1, duration: 0.8 }}
-        className="contact-form-shell relative overflow-hidden rounded-[2.2rem] border p-7 shadow-2xl backdrop-blur-2xl md:p-9"
-      >
-        <div className="contact-form-scan" />
+                      <div className="rounded-full border border-white/10 bg-black/30 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400 backdrop-blur-xl">
+                        node_{String(index + 1).padStart(2, "0")}
+                      </div>
+                    </div>
 
-        <h4 className="relative z-10 mb-7 flex items-center gap-3 text-2xl font-black text-white">
-          <Send className="text-cyan-400" />
-          Send a Message
-        </h4>
+                    <div className="relative z-10 mb-7 flex items-start justify-between gap-5">
+                      <div className="min-w-0">
+                        <div className="mb-4 flex flex-wrap items-center gap-2">
+                          <span className="cyber-chip rounded-full border px-3 py-1.5 font-mono text-[10px] font-black uppercase tracking-[0.22em]">
+                            {project.label}
+                          </span>
 
-        <form
-          action="https://formspree.io/f/xbdapkgq"
-          method="POST"
-          className="relative z-10 space-y-5"
+                          <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] text-slate-400">
+                            {project.period}
+                          </span>
+                        </div>
+
+                        <h4 className="max-w-[90%] text-3xl font-black leading-tight tracking-tight text-white transition-colors duration-300 group-hover:text-white md:text-4xl">
+                          {project.title}
+                        </h4>
+                      </div>
+
+                      <div className="cyber-icon-box relative flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl border bg-black/40 backdrop-blur-xl transition-all duration-500 group-hover:rotate-6 group-hover:scale-110">
+                        <Icon size={30} />
+                      </div>
+                    </div>
+
+                    <div className="relative z-10 mb-7 flex items-center gap-2 font-mono text-xs text-slate-400">
+                      <MapPin size={14} />
+                      <span>{project.location}</span>
+                    </div>
+
+                    <p className="relative z-10 mb-7 text-[15px] leading-7 text-slate-300">
+                      {project.description}
+                    </p>
+
+                    <div className="relative z-10 mb-8 grid gap-3">
+                      {project.impact.map((item) => (
+                        <div
+                          key={item}
+                          className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.025] px-4 py-3 text-sm text-slate-300 backdrop-blur-xl transition-all duration-300 group-hover:border-white/10 group-hover:bg-white/[0.045]"
+                        >
+                          <Check size={16} className="mt-0.5 flex-shrink-0 text-emerald-400" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="relative z-10 mb-9 flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-lg border border-white/10 bg-black/30 px-3 py-2 font-mono text-[11px] font-bold text-slate-300 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:text-cyan-200"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="relative z-10 mt-auto flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-slate-500">
+                          system_id
+                        </div>
+
+                        <div className="cyber-code-name mt-1 font-mono text-xs font-black uppercase tracking-[0.25em]">
+                          {project.codeName}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-3">
+                        {project.website && (
+                          <a
+                            href={project.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cyber-source-button group/link inline-flex items-center gap-2 rounded-2xl border px-5 py-3 text-sm font-black text-white transition-all duration-300 hover:scale-105"
+                          >
+                            Visit Website
+                            <Globe
+                              size={16}
+                              className="transition-transform duration-300 group-hover/link:translate-x-1"
+                            />
+                          </a>
+                        )}
+
+                        <a
+                          href={project.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cyber-source-button group/link inline-flex items-center gap-2 rounded-2xl border px-5 py-3 text-sm font-black text-white transition-all duration-300 hover:scale-105"
+                        >
+                          View Source
+                          <ExternalLink
+                            size={16}
+                            className="transition-transform duration-300 group-hover/link:translate-x-1"
+                          />
+                        </a>
+                      </div>
+                    </div>
+
+                    <span className="cyber-corner cyber-corner-tl" />
+                    <span className="cyber-corner cyber-corner-tr" />
+                    <span className="cyber-corner cyber-corner-bl" />
+                    <span className="cyber-corner cyber-corner-br" />
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="contact"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="contact-cyber-zone relative overflow-hidden rounded-[3rem] border px-6 py-10 md:px-10 md:py-14"
         >
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <div>
-              <label className="mb-2 block text-sm font-black text-slate-300">
-                Your Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                className="contact-input w-full rounded-xl border px-5 py-4 font-medium transition-all focus:outline-none"
-                placeholder="John Doe"
-              />
-            </div>
+          <div className="contact-grid-bg" />
+          <div className="contact-glow contact-glow-one" />
+          <div className="contact-glow contact-glow-two" />
 
-            <div>
-              <label className="mb-2 block text-sm font-black text-slate-300">
-                Your Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                required
-                className="contact-input w-full rounded-xl border px-5 py-4 font-medium transition-all focus:outline-none"
-                placeholder="john@company.com"
-              />
+          <motion.div
+            className="contact-line contact-line-one"
+            animate={{ x: ["-20%", "25%", "-20%"], opacity: [0.1, 0.45, 0.1] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          <motion.div
+            className="contact-line contact-line-two"
+            animate={{ x: ["20%", "-25%", "20%"], opacity: [0.1, 0.35, 0.1] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-5"
+            >
+              <div className="contact-gif-shell group relative h-[420px] overflow-hidden rounded-[2.2rem] border md:h-[560px]">
+                <img
+                  src="/Kidmograph-ViusalAtelier8-Art-Cyber-1.gif"
+                  alt="Cyber visual animation"
+                  className="h-full w-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 contact-gif-scan" />
+
+                <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full border border-cyan-400/30 bg-black/40 px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.22em] text-cyan-300 backdrop-blur-xl">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
+                  signal_online
+                </div>
+
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="font-mono text-xs uppercase tracking-[0.35em] text-cyan-300">
+                    visual system
+                  </p>
+
+                  <h4 className="mt-2 text-3xl font-black text-white md:text-4xl">
+                    AI Interface Mode
+                  </h4>
+
+                  <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
+                    Building systems with software, AI, robotics, and real-world
+                    engineering.
+                  </p>
+                </div>
+
+                <span className="cyber-corner cyber-corner-tl" />
+                <span className="cyber-corner cyber-corner-tr" />
+                <span className="cyber-corner cyber-corner-bl" />
+                <span className="cyber-corner cyber-corner-br" />
+              </div>
+            </motion.div>
+
+            <div className="space-y-7 lg:col-span-7">
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="contact-info-panel rounded-[2.2rem] border p-7 md:p-9"
+              >
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-2.5 font-mono text-xs text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+                  <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-cyan-500" />
+                  Open to Opportunities
+                </div>
+
+                <h3 className={`text-5xl font-black tracking-tighter md:text-6xl ${theme.heading}`}>
+                  Let&apos;s talk.
+                </h3>
+
+                <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${theme.muted}`}>
+                  If you have a project idea, an internship opportunity, or just want to
+                  connect, feel free to message me. I’m always open to new ideas and
+                  collaborations.
+                </p>
+
+                <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <button onClick={handleCopyEmail} className="contact-card group md:col-span-2">
+                    <div className="contact-icon-box bg-cyan-500/10 text-cyan-400">
+                      {copied ? <Check size={20} /> : <Mail size={20} />}
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="contact-label">Email</p>
+                      <p className="contact-value break-all">
+                        {copied ? "Copied to clipboard!" : email}
+                      </p>
+                    </div>
+                  </button>
+
+                  <a href="tel:+31617174048" className="contact-card group">
+                    <div className="contact-icon-box bg-violet-500/10 text-violet-400">
+                      <Phone size={20} />
+                    </div>
+
+                    <div>
+                      <p className="contact-label">Phone</p>
+                      <p className="contact-value">+31 617174048</p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://www.linkedin.com/in/kiarash-delavar-b1a542289/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-card group"
+                  >
+                    <div className="contact-icon-box bg-blue-500/10 text-blue-400">
+                      <Linkedin size={20} />
+                    </div>
+
+                    <div>
+                      <p className="contact-label">LinkedIn</p>
+                      <p className="contact-value">Kiarash</p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://github.com/kiarashdelavar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-card group md:col-span-2"
+                  >
+                    <div className="contact-icon-box bg-slate-500/10 text-slate-200">
+                      <Github size={20} />
+                    </div>
+
+                    <div>
+                      <p className="contact-label">GitHub</p>
+                      <p className="contact-value">@kiarashdelavar</p>
+                    </div>
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1, duration: 0.8 }}
+                className="contact-form-shell relative overflow-hidden rounded-[2.2rem] border p-7 shadow-2xl backdrop-blur-2xl md:p-9"
+              >
+                <div className="contact-form-scan" />
+
+                <h4 className="relative z-10 mb-7 flex items-center gap-3 text-2xl font-black text-white">
+                  <Send className="text-cyan-400" />
+                  Send a Message
+                </h4>
+
+                <form
+                  action="https://formspree.io/f/xbdapkgq"
+                  method="POST"
+                  className="relative z-10 space-y-5"
+                >
+                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                    <div>
+                      <label className="mb-2 block text-sm font-black text-slate-300">
+                        Your Name
+                      </label>
+
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        className="contact-input w-full rounded-xl border px-5 py-4 font-medium transition-all focus:outline-none"
+                        placeholder="John Doe"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-2 block text-sm font-black text-slate-300">
+                        Your Email
+                      </label>
+
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        className="contact-input w-full rounded-xl border px-5 py-4 font-medium transition-all focus:outline-none"
+                        placeholder="john@company.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-sm font-black text-slate-300">
+                      Message
+                    </label>
+
+                    <textarea
+                      name="message"
+                      required
+                      rows={5}
+                      className="contact-input w-full resize-none rounded-xl border px-5 py-4 font-medium transition-all focus:outline-none"
+                      placeholder="Tell me about your project, team, or opportunity..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="contact-submit group flex w-full items-center justify-center gap-3 rounded-xl py-4 text-lg font-black text-white transition-all hover:-translate-y-1 hover:scale-[1.01]"
+                  >
+                    Send Message
+                    <Rocket
+                      size={20}
+                      className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                    />
+                  </button>
+                </form>
+              </motion.div>
             </div>
           </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-black text-slate-300">
-              Message
-            </label>
-            <textarea
-              name="message"
-              required
-              rows={5}
-              className="contact-input w-full resize-none rounded-xl border px-5 py-4 font-medium transition-all focus:outline-none"
-              placeholder="Tell me about your project, team, or opportunity..."
-            />
-          </div>
-
-          <button
-            type="submit"
-           className="contact-submit group flex w-full items-center justify-center gap-3 rounded-xl py-4 text-lg font-black text-white transition-all hover:-translate-y-1 hover:scale-[1.01]"
-          >
-            Send Message
-            <Rocket size={20} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </button>
-        </form>
-      </motion.div>
-    </div>
-  </div>
-</motion.section>
+        </motion.section>
       </main>
 
       <footer
@@ -1368,6 +1479,7 @@ nav: isDarkMode
           >
             <Github size={20} />
           </a>
+
           <a
             href="https://gitlab.com/kiarash.delavar"
             target="_blank"
@@ -1376,6 +1488,7 @@ nav: isDarkMode
           >
             <Gitlab size={20} />
           </a>
+
           <a
             href="https://www.linkedin.com/in/kiarash-delavar-b1a542289/"
             target="_blank"

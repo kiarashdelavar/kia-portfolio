@@ -1333,5 +1333,43 @@ body {
   color: #dbeafe !important;
 }
 
+.portfolio-mp4-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.portfolio-mp4-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.32;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+.portfolio-mp4-readable-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 4, 10, 0.4),
+      rgba(2, 4, 10, 0.86)
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(2, 4, 10, 0.1),
+      rgba(2, 4, 10, 0.78)
+    );
+}
 
 
